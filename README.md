@@ -10,18 +10,31 @@ Tomando como base el documento de requisitos que aparece a continuación realiza
 Documento de requisitos
 Descripción general
 Se desea realizar una aplicación que permita a los mecánicos de un garaje registrar, consultar y actualizar los trabajos (reparaciones y revisiones) que han sido realizados o que están en proceso de realización en el garaje.
-Cada trabajo se identifica unívocamente por su "identificador de trabajo". El "identificador de trabajo" es un número que se asocia con el trabajo en el momento que se registra. El primer trabajo registrado tendrá el identificador 0, el segundo el 1 y así sucesivamente.
+
+Cada trabajo se identifica unívocamente por su "identificador de trabajo". El "identificador de trabajo" es un número que se asocia con el trabajo en el momento que se registra.
+
+El primer trabajo registrado tendrá el identificador 0, el segundo el 1 y así sucesivamente.
+
 Los trabajos incluyen una pequeña descripción de la reparación o revisión a realizar.
+
 Todos los trabajos incluyen el número de horas que van siendo necesarias para su realización. Al crear un trabajo el número de horas es 0. El número de horas irá aumentando a medida que los mecánicos van dedicando tiempo a realizar la reparación o la revisión. Cuando el trabajo se ha finalizado se marca como "finalizado" y el número de horas no puede volver a cambiarse.
+
 Las reparaciones incluyen el precio del material utilizado (piezas o pintura). Al registrar una reparación el precio del material es 0 y va aumentando a medida que los mecánicos van utilizando material en la reparación. Una vez que la reparación se marca como "finalizada" no se puede cambiar el precio del material utilizado.
+
 El precio a cobrar para cada trabajo se compone de una parte fija que resulta de multiplicar el número de horas empleadas por $50.000. Además, dependiendo del tipo de trabajo el coste varía   de la siguiente manera:
+
 •	Reparación mecánica: su precio se calcula como fijo más el coste material multiplicado por 1.1.
+
 •	Reparación de latonería y pintura: su precio se calcula como fijo más el coste material multiplicado por 1.3.
+
 •	Revisión: su precio se calcula como fijo más extra independiente del número de horas de $200.000.
+
 El garaje se ha marcado unos plazos máximos en los que deberían estar terminados los trabajos. Estos plazos son: 21 días para las reparaciones de latonería y pintura, 14 para las reparaciones mecánicas y 7 para las revisiones.
+
 La aplicación se gestionará mediante una interfaz gráfica basada en menú.
 
 Casos de uso
+
 Las operaciones que se desea que los mecánicos puedan realizar son las descritas en los siguientes casos de uso:
 Caso de uso "Registra trabajo":
 1.	El mecánico selecciona la opción "Registra trabajo".
