@@ -11,4 +11,8 @@ package Modelo;
  */
 public class RepMecanica {
     
+    //atributo
+    
+    private double plazo;
+    
 }
