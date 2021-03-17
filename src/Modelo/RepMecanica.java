@@ -7,12 +7,17 @@ package Modelo;
 
 /**
  *
- * @author Usuario
+ * @authorario 
  */
 public class RepMecanica {
     
     //atributo
     
     private double plazo;
+    private double gasto_marterial;
+    private double precio_fijo;
+    
+    
+    
     
 }
