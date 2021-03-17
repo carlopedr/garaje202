@@ -10,5 +10,5 @@ package Modelo;
  * @author Usuario
  */
 public class RegistrarTrabajos {
-    
+    private int ID_trabajo;
 }
