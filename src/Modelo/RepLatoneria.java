@@ -11,4 +11,6 @@ package Modelo;
  */
 public class RepLatoneria {
     
+    private int laton;
+    
 }
