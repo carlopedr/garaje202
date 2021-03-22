@@ -9,6 +9,7 @@ package Modelo;
  *
  * @author Usuario
  */
-public class Revision {
+public class Revision extends Trabajos {
     
+    private double plazo;
 }
