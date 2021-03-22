@@ -17,8 +17,9 @@ public class RepMecanica extends Trabajos{
     
     
     //metodo 
-   public void calcularpago(){
-   
+   public double calcularpago(){
+   double saldo = 0;//inicializar saldo 
+   return saldo;
    }
    
     
