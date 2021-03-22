@@ -9,14 +9,18 @@ package Modelo;
  *
  * @authorario 
  */
-public class RepMecanica {
+public class RepMecanica extends Trabajos{
     
     //atributo
     
     private double plazo;
-    private double gasto_marterial;
-    private double precio_fijo;
-    private int tiempo;
+    
+    
+    //metodo 
+   public void calcularpago(){
+   
+   }
+   
     
     
     
