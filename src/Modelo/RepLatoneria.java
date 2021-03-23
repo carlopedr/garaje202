@@ -12,7 +12,7 @@ package Modelo;
  */
 public class RepLatoneria extends Trabajos {
     //atributos
-    private int laton;
+    private int plazo;
     
     //metdos
     public double CalcularPagos(){
