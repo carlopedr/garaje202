@@ -9,6 +9,10 @@ package Modelo;
  *
  * @author Usuario
  */
-public class Vehiculos {
+public class Propietario extends Persona {
+    
+    public Propietario(float id, String nombre, String email) {
+        super(id, nombre, email);
+    }
     
 }
