@@ -12,6 +12,8 @@ package Modelo;
 public class Trabajos {
     public int numHoras;
     public double precioaCobrar; //esta variable la uso en revision we, pongala para que sea el precio final pls
+  protected double vrMaterial;
+    
     
     
 }
