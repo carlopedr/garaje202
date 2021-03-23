@@ -9,8 +9,16 @@ package Modelo;
  *
  * @author Usuario
  */
-public class RepLatoneria {
-    
+public class RepLatoneria extends Trabajos {
+    //atributos
     private int laton;
+    
+    //metdos
+    public double CalcularPagos(){
+    
+        double pago = (1000+vrMaterial)*1.3;
+        return pago;
+    
+    }
     
 }
