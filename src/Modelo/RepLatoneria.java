@@ -7,7 +7,8 @@ package Modelo;
 
 /**
  *
- * @author Usuario
+ * @author PABLO ALEXANDER SALAZAR SANCHEZ 
+ * CODE: 20201187152
  */
 public class RepLatoneria extends Trabajos {
     //atributos
