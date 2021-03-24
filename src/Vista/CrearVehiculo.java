@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import Modelo.Propietario;
+import Modelo.Vehiculo;
+import dao.VehiculoDAO;
 import java.util.Calendar;
 
 /**
@@ -65,7 +68,18 @@ public class CrearVehiculo extends javax.swing.JFrame {
 
         jLabel6.setText("Modelo");
 
+        placaVehiculoTxtF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                placaVehiculoTxtFActionPerformed(evt);
+            }
+        });
+
         crearBtn.setText("Crear");
+        crearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearBtnActionPerformed(evt);
+            }
+        });
 
         limpiarBtn.setText("Limpiar");
 
@@ -99,18 +113,22 @@ public class CrearVehiculo extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(placaVehiculoTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(marcaVehiculoTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(colorVehiculoTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(propitearioVehiculoCmBox, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(modeloVehiculoCmBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(marcaVehiculoTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(colorVehiculoTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(propitearioVehiculoCmBox, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(modeloVehiculoCmBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(placaVehiculoTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addComponent(crearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addComponent(limpiarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(salirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -122,11 +140,10 @@ public class CrearVehiculo extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2))
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
                             .addComponent(placaVehiculoTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -148,7 +165,7 @@ public class CrearVehiculo extends javax.swing.JFrame {
                     .addComponent(crearBtn)
                     .addComponent(limpiarBtn)
                     .addComponent(salirBtn))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -161,6 +178,29 @@ public class CrearVehiculo extends javax.swing.JFrame {
     private void modeloVehiculoCmBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modeloVehiculoCmBoxActionPerformed
        
     }//GEN-LAST:event_modeloVehiculoCmBoxActionPerformed
+
+    private void crearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearBtnActionPerformed
+        // TODO add your handling code here:
+        //Pendiente: verificar que los datos no sean nulos y el propietario
+        String placa;
+        String marca;
+        String color;
+        Propietario p = new Propietario(5698, "AA", "aa@gmail.com");
+        int modelo;
+        placa=placaVehiculoTxtF.getText();
+        marca=marcaVehiculoTxtF.getText();
+        color=colorVehiculoTxtF.getText();
+        modelo=Integer.parseInt((String) modeloVehiculoCmBox.getSelectedItem());
+        Vehiculo v = new Vehiculo(placa,marca,color,p,modelo);
+        VehiculoDAO vDAO = new VehiculoDAO();
+        vDAO.insertarVehiculo(v);
+        
+        
+    }//GEN-LAST:event_crearBtnActionPerformed
+
+    private void placaVehiculoTxtFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placaVehiculoTxtFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_placaVehiculoTxtFActionPerformed
 
     /**
      * @param args the command line arguments

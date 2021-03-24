@@ -14,6 +14,9 @@ public class Persona {
     private String nombre;
     private String email;
 
+    public Persona() {
+    }
+
     public Persona(float id, String nombre, String email) {
         this.id = id;
         this.nombre = nombre;

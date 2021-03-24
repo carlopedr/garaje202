@@ -14,14 +14,17 @@ import java.util.logging.Logger;
 public class Vehiculo {
     private String placa;
     private String marca;
-    private String color;
+    private String colors;
     private Propietario propietario;
     private int modelo;
 
-    public Vehiculo(String placa, String marca, String color, Propietario propietario, int modelo) {
+    public Vehiculo() {
+    }
+
+    public Vehiculo(String placa, String marca, String colors, Propietario propietario, int modelo) {
         this.placa = placa;
         this.marca = marca;
-        this.color = color;
+        this.colors = colors;
         this.propietario = propietario;
         this.modelo = modelo;
     }
@@ -34,8 +37,8 @@ public class Vehiculo {
         return marca;
     }
 
-    public String getColor() {
-        return color;
+    public String getColors() {
+        return colors;
     }
 
     public Propietario getPropietario() {
@@ -54,8 +57,8 @@ public class Vehiculo {
         this.marca = marca;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setColors(String color) {
+        this.colors = color;
     }
 
     public void setPropietario(Propietario propietario) {
@@ -69,7 +72,7 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculos{" + "placa=" + placa + ", marca=" + marca + ", color=" + color + ", propietario=" + propietario + ", modelo=" + modelo + '}';
+        return "Vehiculos{" + "placa=" + placa + ", marca=" + marca + ", color=" + colors + ", propietario=" + propietario + ", modelo=" + modelo + '}';
     }
     
     

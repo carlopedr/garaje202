@@ -10,6 +10,9 @@ package Modelo;
  * @author Usuario
  */
 public class Propietario extends Persona {
+
+    public Propietario() {
+    }
     
     public Propietario(float id, String nombre, String email) {
         super(id, nombre, email);
