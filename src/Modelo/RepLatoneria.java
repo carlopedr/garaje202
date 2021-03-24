@@ -7,8 +7,19 @@ package Modelo;
 
 /**
  *
- * @author Usuario
+ * @author PABLO ALEXANDER SALAZAR SANCHEZ 
+ * CODE: 20201187152
  */
-public class RepLatoneria {
+public class RepLatoneria extends Trabajos {
+    //atributos
+    private int plazo;
+    
+    //metdos
+    public double CalcularPagos(){
+    
+        double pago = (1000+vrMaterial)*1.3;
+        return pago;
+    
+    }
     
 }

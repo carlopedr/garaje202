@@ -7,8 +7,25 @@ package Modelo;
 
 /**
  *
- * @author Usuario
+ * josselyne ester chilito galindez    20201187434
  */
-public class RepMecanica {
+public class RepMecanica extends Trabajos{
+    
+    //atributo
+    
+    private double plazo;
+    
+   
+    
+    
+    //metodo 
+   public double calcularpago(){    
+   double saldo=(2000+vrMaterial)*1.1;
+   return saldo;
+   }
+   
+    
+    
+    
     
 }
