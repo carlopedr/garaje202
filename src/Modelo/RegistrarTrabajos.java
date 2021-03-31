@@ -23,4 +23,5 @@ public class RegistrarTrabajos {
         this.idTrabajo = idTrabajo;
     }
     
+    
 }

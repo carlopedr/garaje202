@@ -31,8 +31,10 @@ public class VehiculoDAOMongo implements IVehiculoDAO {
     @Override
     public List<Vehiculo> obtenerVehiculos() {
         ArrayList<Vehiculo> lv = new ArrayList();
+        //Para convertir objetos de java en documentos tipo BSON en Mongo
         CodecRegistry pojoCodecRegistry = fromProviders(PojoCodecProvider.builder().automatic(true).build());
         CodecRegistry codecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), pojoCodecRegistry);
+        //Conexión a la BD Mongo
         MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb+srv://root:santafe2021@cluster0.vigaa.mongodb.net/GarajeBD?authSource=admin&replicaSet=atlas-10ow43-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Community&retryWrites=true&ssl=true"));
         MongoDatabase db = mongoClient.getDatabase("GarajeBD").withCodecRegistry(codecRegistry);
         MongoCollection<Vehiculo> vehiculoMongo = db.getCollection("vehiculo", Vehiculo.class);

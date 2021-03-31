@@ -17,7 +17,9 @@ public class Trabajos extends RegistrarTrabajos{
     public String estado;
     public int vrMaterial;
     public double precioaCobrar; //esta variable la uso en revision we, pongala para que sea el precio final pls
-
+    //Vehiculo al cual se le realiza el trabajo
+    public Vehiculo vehiculo;
+    
     public int getId() {
         return id;
     }
@@ -58,10 +60,13 @@ public class Trabajos extends RegistrarTrabajos{
         this.vrMaterial = vrMaterial;
     }
     
-    
+ 
     
     
     public void calcularIdTrabajo(){
+        //Hay que buscar el la BD cual fue el ID de ultimo guardado
+        //para calular el ID
+        
         
     }
     

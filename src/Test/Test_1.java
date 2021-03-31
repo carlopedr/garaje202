@@ -21,13 +21,14 @@ import java.util.List;
  */
 public class Test_1 {
      public static void main(String[] args) {
-        //Propietario p = new Propietario(65789, "XX", "xx@gmail.com");
-        //Vehiculo v = new Vehiculo("GGR041", "Chevrolet", "Blanco", p, 2015);
-        //VehiculoDAOMongo vDAOMongo = new VehiculoDAOMongo();
-        //vDAOMongo.insertarVehiculo(v);
-        //Vehiculo v2 = new Vehiculo("KJT564", "Nissan", "Verde", p, 2019);
-        //vDAOMongo.insertarVehiculo(v2);
-        VehiculoDAOMongo vDAOM1 = new VehiculoDAOMongo();
+        /*Propietario p = new Propietario(1003456873, "Carolina Perez", "cperez@gmail.com");
+        Vehiculo v = new Vehiculo("MQA987", "Audi", "Plata", p, 2020);
+        VehiculoDAOMongo vDAOMongo = new VehiculoDAOMongo();
+        vDAOMongo.insertarVehiculo(v);
+        Vehiculo v2 = new Vehiculo("HMZ54R", "AKT", "Negro", p, 2018);
+        vDAOMongo.insertarVehiculo(v2);
+        */
+      /*  VehiculoDAOMongo vDAOM1 = new VehiculoDAOMongo();
          try {
              Vehiculo v1 = vDAOM1.obtenerVehiculo("JMZ56E");
              System.out.println(v1.toString());
@@ -40,7 +41,7 @@ public class Test_1 {
              System.out.println("Vehiculo no existe");
              System.out.println(e.toString());
          }
-         
+     */    
         
     /*
     //Propietario p = new Propietario(5698, "AA", "aa@gmail.com");
@@ -75,5 +76,4 @@ public class Test_1 {
         }
      }
 }
-
 
