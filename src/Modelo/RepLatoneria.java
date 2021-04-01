@@ -12,7 +12,12 @@ package Modelo;
  */
 public class RepLatoneria extends Trabajos {
     //atributos
-    private int plazo;
+    private double plazo;
+
+    public RepLatoneria(int id, String descripcion, int numHoras, String estado, int vrMaterial, double precioaCobrar, Vehiculo vehiculo,double plazo) {
+        super(id, descripcion, numHoras, estado, vrMaterial, precioaCobrar, vehiculo);
+        this.plazo=plazo;
+    }
     
     //metdos
     public double CalcularPagos(){

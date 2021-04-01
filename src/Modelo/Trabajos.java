@@ -11,13 +11,29 @@ package Modelo;
  * COD -- 20201188463
  */
 public class Trabajos extends RegistrarTrabajos{
-    public int id;
-    public String descripcion;
-    public int numHoras;
-    public String estado;
-    public int vrMaterial;
-    public double precioaCobrar; //esta variable la uso en revision we, pongala para que sea el precio final pls
+    protected int id;
+    protected  String descripcion;
+    protected int numHoras;
+    protected  String estado;
+    protected  int vrMaterial;
+    protected double precioaCobrar; //esta variable la uso en revision we, pongala para que sea el precio final pls
+    //costructor lo necesito para repmedcanica
+
+    public Trabajos(int id, String descripcion, int numHoras, String estado, int vrMaterial, double precioaCobrar, Vehiculo vehiculo) {
+        this.id = id;
+        this.descripcion = descripcion;
+        this.numHoras = numHoras;
+        this.estado = estado;
+        this.vrMaterial = vrMaterial;
+        this.precioaCobrar = precioaCobrar;
+        this.vehiculo = vehiculo;
+    }
+    
+    
+    
+    
     //Vehiculo al cual se le realiza el trabajo
+    
     public Vehiculo vehiculo;
     
     public int getId() {
@@ -60,8 +76,7 @@ public class Trabajos extends RegistrarTrabajos{
         this.vrMaterial = vrMaterial;
     }
     
- 
-    
+ // 
     
     public void calcularIdTrabajo(){
         //Hay que buscar el la BD cual fue el ID de ultimo guardado

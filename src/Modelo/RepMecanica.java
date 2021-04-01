@@ -15,6 +15,13 @@ public class RepMecanica extends Trabajos{
     
     private double plazo;
     
+    //constructor 
+
+    public RepMecanica(int id, String descripcion, int numHoras, String estado, int vrMaterial, double precioaCobrar, Vehiculo vehiculo,double plazo) {
+        super(id, descripcion, numHoras, estado, vrMaterial, precioaCobrar, vehiculo);
+        this.plazo=plazo;
+    }
+    
    
     
     
