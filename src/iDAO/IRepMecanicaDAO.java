@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package iDAO;
 
 import Modelo.RepMecanica;
 import java.util.List;
 
 /**
- *
- * @author Usuario
+@author DUVERNEY NAVEROS COD.20201187763
+        YOSSELINE CHILITO COD.20201187434
  */
+
 public interface IRepMecanicaDAO {
      //CRUD: Create, Read, Update, Delete
     public List<RepMecanica> obtenerRepMecanicas();
