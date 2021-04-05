@@ -22,6 +22,4 @@ public class RegistrarTrabajos {
     public void setIdTrabajo(int idTrabajo) {
         this.idTrabajo = idTrabajo;
     }
-    
-    
 }

@@ -75,6 +75,14 @@ public class Trabajos extends RegistrarTrabajos{
     public void setVrMaterial(int vrMaterial) {
         this.vrMaterial = vrMaterial;
     }
+
+    public double getPrecioaCobrar() {
+        return precioaCobrar;
+    }
+
+    public void setPrecioaCobrar(double precioaCobrar) {
+        this.precioaCobrar = precioaCobrar;
+    }
     
  // 
     

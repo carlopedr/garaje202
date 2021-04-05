@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
-
 import Modelo.Vehiculo;
 import iDAO.IVehiculoDAO;
 import java.util.List;
@@ -26,6 +20,10 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
+/**
+@author DUVERNEY NAVEROS COD.20201187763
+        YOSSELINE CHILITO COD.20201187434
+ */
 public class VehiculoDAOMongo implements IVehiculoDAO {
 
     @Override
