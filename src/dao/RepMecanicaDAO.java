@@ -48,7 +48,7 @@ public class RepMecanicaDAO implements IRepMecanicaDAO{
 
     @Override
     public List<RepMecanica> obtenerRepMecanicas() {
-        ArrayList<RepMecanica> lv = new ArrayList();
+        ArrayList<RepMecanica> lrp = new ArrayList();
         //Para convertir objetos de java en documentos tipo BSON en Mongo
         CodecRegistry pojoCodecRegistry = fromProviders(PojoCodecProvider.builder().automatic(true).build());
         CodecRegistry codecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), pojoCodecRegistry);
@@ -61,10 +61,9 @@ public class RepMecanicaDAO implements IRepMecanicaDAO{
         RepMecanica v = null;
         while (iter.hasNext()) {
             v = iter.next();
-            lv.add(v);
-            return lv;
+            lrp.add(v);
         }
-        return lv;
+        return lrp;
     }
 
     @Override
@@ -84,8 +83,9 @@ public class RepMecanicaDAO implements IRepMecanicaDAO{
         MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb+srv://root:santafe2021@cluster0.vigaa.mongodb.net/GarajeBD?authSource=admin&replicaSet=atlas-10ow43-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Community&retryWrites=true&ssl=true"));
         MongoDatabase db = mongoClient.getDatabase("GarajeBD").withCodecRegistry(codecRegistry);
         MongoCollection<RepMecanica> repmecanicaMongo = db.getCollection("repmecanica", RepMecanica.class);
-        RepMecanica v = repmecanicaMongo.find(eq(" id", repmecanica.getId())).first();
-        Document filterByid = new Document(" id", v.getId());
+        System.out.println(repmecanica.toString());
+        RepMecanica v = repmecanicaMongo.find(eq("_id", repmecanica.getId())).first();
+        Document filterByid = new Document("_id", v.getId());
         FindOneAndReplaceOptions returnDocAfterReplace = new FindOneAndReplaceOptions().returnDocument(ReturnDocument.AFTER);
         RepMecanica updatedVehiculo = repmecanicaMongo.findOneAndReplace(filterByid, repmecanica, returnDocAfterReplace);
     }

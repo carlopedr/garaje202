@@ -19,6 +19,9 @@ public class Trabajos extends RegistrarTrabajos{
     protected double precioaCobrar; //esta variable la uso en revision we, pongala para que sea el precio final pls
     //costructor lo necesito para repmedcanica
 
+    public Trabajos() {
+    }
+
     public Trabajos(int id, String descripcion, int numHoras, String estado, int vrMaterial, double precioaCobrar, Vehiculo vehiculo) {
         this.id = id;
         this.descripcion = descripcion;

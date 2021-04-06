@@ -20,10 +20,6 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
-/**
-@author DUVERNEY NAVEROS COD.20201187763
-        YOSSELINE CHILITO COD.20201187434
- */
 public class VehiculoDAOMongo implements IVehiculoDAO {
 
     @Override
