@@ -18,7 +18,7 @@ import dao.VehiculoDAOMongo;
 public class test_3 {
 
     public static void main(String[] args) {
-        Propietario p = new Propietario(1187763, "pablo alexander salazar", "u20201187152@usco.edu.co");
+        Propietario p = new Propietario(1187152, "pablo alexander salazar", "u20201187152@usco.edu.co");
         Vehiculo v = new Vehiculo("PAS-195", "ferrari", "rojo", p, 2014);
         VehiculoDAOMongo vDAOMongo = new VehiculoDAOMongo();
 
