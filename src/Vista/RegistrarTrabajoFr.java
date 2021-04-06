@@ -219,25 +219,36 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
     }//GEN-LAST:event_TrabajocmbActionPerformed
 
     private void guardarTrabajoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarTrabajoBtnActionPerformed
-        // TODO add your handling code here:
+       // TODO add your handling code here:
         //Registar en la colección correspondiente de acuerdo al 
         //comboBox de tipo de trabajo
-        /*VehiculoDAOMongo vDAO = new VehiculoDAOMongo();
+        String categoria1 = (String) Trabajocmb.getSelectedItem();
+        String categoria2 = (String) vehiculosCmb.getSelectedItem();
+        VehiculoDAOMongo vDAO = new VehiculoDAOMongo();
         List<Vehiculo> list = vDAO.obtenerVehiculos();
         Iterator<Vehiculo> iter = list.iterator();
         Vehiculo v = null;
+        Vehiculo v1 = new Vehiculo(null,null,null,null,0);
         while (iter.hasNext()) {
             v = iter.next();
-            
+            if(categoria2 == vehiculosCmb.getSelectedItem()){
+            v1.setPlaca(v.getPlaca());
+            v1.setMarca(v.getMarca());
+            v1.setColors(v.getColors());
+            v1.setPropietario(v.getPropietario());
+            v1.setModelo(v.getModelo());
+       
+        }
 //                System.out.println(v.toString());
         }
-        String categoria2 = (String) vehiculosCmb.getSelectedItem();*/
+        
 
-       RepMecanica repmecanica = null;
+      RepMecanica repmecanica = new RepMecanica(2,categoria1,40,"sin fallas",5,500000,v1,10);
+     //RepMecanica repmecanica=null;
        RepLatoneria replatoneria = null;
        Revision revision = null;
        
-        String categoria1 = (String) Trabajocmb.getSelectedItem();
+        
         if(categoria1 == "MECANICA"){
             this.insertarRepMecanica(repmecanica);
        
