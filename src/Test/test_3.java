@@ -25,7 +25,7 @@ public class test_3 {
         RepLatoneria replatoneria1 = new RepLatoneria(435, "descripcion", 2, "estado", 30000, 60000, v, 8);
         RepLatoneriaDAO replatoneriadao = new RepLatoneriaDAO();
 
-        v.setColors("rojo");
+        v.setColors("blanco");
 
         replatoneriadao.actualizarRepLatoneria(replatoneria1);
     }
