@@ -15,6 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 import iDAO.IRepLatoneriaDAO;
 import iDAO.IRevisionDAO;
+import java.util.ArrayList;
 
 
 /**
@@ -407,13 +408,13 @@ System.exit(0);         // evento para salir
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+    
     public List<Revision> obtenerRevisiones() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Revision obtenerRevision(String placa) {
+    public ArrayList<Revision> obtenerRevision(String placa) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -429,6 +430,11 @@ System.exit(0);         // evento para salir
 
     @Override
     public void eliminarRevision(Revision revision) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Revision> obtenerRevisiones(String plazo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

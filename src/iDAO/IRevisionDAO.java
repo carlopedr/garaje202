@@ -6,6 +6,7 @@
 package iDAO;
 
 import Modelo.Revision;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,9 +15,9 @@ import java.util.List;
  */
 public interface IRevisionDAO {
     //CRUD: Create, Read, Update, Delete
-    public List<Revision> obtenerRevisiones();
+    public List<Revision> obtenerRevisiones(String plazo);
 
-    public Revision obtenerRevision(String placa);
+    public ArrayList<Revision> obtenerRevision(String plazo);
 
     public void insertarRevision(Revision revision);
     
