@@ -11,7 +11,8 @@ import java.util.List;
 
 /**
  *
- * @author Usuario
+ * @author Andres Camilo Gonzalez Velasquez & Cristian Stiven Perdomo Garcia
+ *         Cod: 20201187519                   Cod: 20201188463
  */
 public interface IRevisionDAO {
     //CRUD: Create, Read, Update, Delete
