@@ -29,7 +29,7 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 /**
  *
  * @author Andres Camilo Gonzalez Velasquez & Cristian Stiven Perdomo Garcia
- *         Cod: 20201187519                   Cod: 202011
+ *         Cod: 20201187519                   Cod: 20201188463
  */
 public class RevisiónDAO implements IRevisionDAO{
     @Override
