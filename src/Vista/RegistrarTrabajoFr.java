@@ -8,7 +8,11 @@ package Vista;
 import Modelo.RepLatoneria;
 import Modelo.RepMecanica;
 import Modelo.Revision;
+import Modelo.Trabajos;
 import Modelo.Vehiculo;
+import dao.RepLatoneriaDAO;
+import dao.RepMecanicaDAO;
+import dao.RevisiónDAO;
 import dao.VehiculoDAOMongo;
 import iDAO.IRepMecanicaDAO;
 import java.util.Iterator;
@@ -63,12 +67,16 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
         BotonLimpiar = new javax.swing.JButton();
         BotonSalir = new javax.swing.JButton();
         Actualizar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        descripcionTA = new javax.swing.JTextArea();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registrar trabajo");
         setBackground(new java.awt.Color(153, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -96,14 +104,14 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
         jLabel2.setText("SELECCIONAR VEHICULO");
 
         datos_trabajo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        datos_trabajo.setForeground(new java.awt.Color(0, 51, 51));
+        datos_trabajo.setForeground(new java.awt.Color(0, 51, 153));
         datos_trabajo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         datos_trabajo.setText("    Datos de Trabajo");
         datos_trabajo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         datos_trabajo.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
         guardarTrabajoBtn.setBackground(new java.awt.Color(102, 255, 255));
-        guardarTrabajoBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        guardarTrabajoBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         guardarTrabajoBtn.setText("Guardar");
         guardarTrabajoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,11 +122,12 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
         texto1.setEditable(false);
         texto1.setBackground(new java.awt.Color(204, 255, 255));
         texto1.setColumns(20);
+        texto1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         texto1.setRows(5);
         jScrollPane1.setViewportView(texto1);
 
         BotonLimpiar.setBackground(new java.awt.Color(102, 255, 255));
-        BotonLimpiar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        BotonLimpiar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         BotonLimpiar.setText("Limpiar");
         BotonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +136,7 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
         });
 
         BotonSalir.setBackground(new java.awt.Color(102, 255, 255));
-        BotonSalir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        BotonSalir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         BotonSalir.setText("Salir");
         BotonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,42 +153,58 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel3.setText("Descripcion del trabajo ");
+
+        descripcionTA.setBackground(new java.awt.Color(204, 255, 255));
+        descripcionTA.setColumns(20);
+        descripcionTA.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        descripcionTA.setRows(5);
+        jScrollPane3.setViewportView(descripcionTA);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(68, 68, 68)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(56, 56, 56))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(vehiculosCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Trabajocmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(115, 115, 115)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(Actualizar))
-                            .addGroup(layout.createSequentialGroup()
+                                .addGap(130, 130, 130)
                                 .addComponent(guardarTrabajoBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(147, 147, 147)
                                 .addComponent(BotonLimpiar)
-                                .addGap(93, 93, 93)
-                                .addComponent(BotonSalir)
-                                .addGap(42, 42, 42))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)))
-                        .addGap(31, 31, 31))
+                                .addGap(133, 133, 133)
+                                .addComponent(BotonSalir)))
+                        .addGap(27, 27, 27)
+                        .addComponent(Actualizar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(vehiculosCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Trabajocmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(datos_trabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(321, 321, 321)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(312, 312, 312)
+                        .addComponent(datos_trabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,26 +214,29 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(vehiculosCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Trabajocmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(Actualizar)
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
                         .addComponent(datos_trabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BotonLimpiar)
-                        .addComponent(BotonSalir))
-                    .addComponent(guardarTrabajoBtn))
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addGap(1, 1, 1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Actualizar)
+                        .addGap(118, 118, 118)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(guardarTrabajoBtn)
+                    .addComponent(BotonLimpiar)
+                    .addComponent(BotonSalir))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -223,41 +251,49 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
        // TODO add your handling code here:
         //Registar en la colección correspondiente de acuerdo al 
         //comboBox de tipo de trabajo
-        String categoria1 = (String) Trabajocmb.getSelectedItem();
-        String categoria2 = (String) vehiculosCmb.getSelectedItem();
+        String categoria = (String) Trabajocmb.getSelectedItem();
+        //obtener el objeto vehiculo de la base de datos 
+        String placa = (String) vehiculosCmb.getSelectedItem();
         VehiculoDAOMongo vDAO = new VehiculoDAOMongo();
-        List<Vehiculo> list = vDAO.obtenerVehiculos();
-        Iterator<Vehiculo> iter = list.iterator();
-        Vehiculo v = null;
-        Vehiculo v1 = new Vehiculo(null,null,null,null,0);
-        while (iter.hasNext()) {
-            v = iter.next();
-            if(categoria2 == vehiculosCmb.getSelectedItem()){
-            v1.setPlaca(v.getPlaca());
-            v1.setMarca(v.getMarca());
-            v1.setColors(v.getColors());
-            v1.setPropietario(v.getPropietario());
-            v1.setModelo(v.getModelo());
+        Vehiculo v= vDAO.obtenerVehiculo(placa);
+      
        
-        }
-//                System.out.println(v.toString());
-        }
-        
+         Trabajos t = new Trabajos();
+         int id=t.calcularIdTrabajo();
+        System.out.println("ID:" + t.calcularIdTrabajo());
 
-      RepMecanica repmecanica = new RepMecanica(2,categoria1,40,"sin fallas",5,500000,v1,10);
-     //RepMecanica repmecanica=null;
-       RepLatoneria replatoneria = null;
-       Revision revision = null;
+//crear los objetos para cada tipo de trabajo y guardarlos 
        
         
-        if(categoria1 == "MECANICA"){
-            this.insertarRepMecanica(repmecanica);
+        
+       //crear los objetos para cada tipo de trabajo y guardarlos en la base de datos 
+        
+        if(categoria.compareTo("MECANICA")==0)
+        {
+            
+            RepMecanica repmecanica = new RepMecanica(id, descripcionTA.getText(), 0, "ACTIVO", 0, 0, v, 0);
+            RepMecanicaDAO repmecanicadao = new RepMecanicaDAO();
+            repmecanicadao.insertarRepMecanica(repmecanica);
        
-        }else {if(categoria1 == "LATONERIA"){
-        this.insertarRepLatoneria(replatoneria);
-        }else{if(categoria1 == "REVISION"){
-        this.insertarRevision(revision);
-        }}}
+       
+        }else if(categoria.compareTo("LATONERIA")==0)
+        {
+            
+            RepLatoneria replatoneria = new RepLatoneria(id, descripcionTA.getText(), 0, "ACTIVO", 0, 0, v, 0);
+            RepLatoneriaDAO replatoneriadao = new RepLatoneriaDAO();
+            replatoneriadao.insertarRepLatoneria(replatoneria);
+       
+       
+        }else if(categoria.compareTo("REVISION")==0)
+        {
+            
+            Revision revision = new Revision(id, descripcionTA.getText(), 0, "ACTIVO", 0, 0, v,0);
+            RevisiónDAO revisiondao = new RevisiónDAO();
+            revisiondao.insertarRevision(revision);
+       
+       
+        }
+        
         
     }//GEN-LAST:event_guardarTrabajoBtnActionPerformed
 
@@ -267,6 +303,7 @@ public class RegistrarTrabajoFr extends javax.swing.JFrame implements IRepMecani
 
     private void BotonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLimpiarActionPerformed
       this.texto1.setText("");  // remplazo el texto con otro texto vacio para simular que se limpio el area de texto
+      this.descripcionTA.setText("");//limpiar el area describir 
     }//GEN-LAST:event_BotonLimpiarActionPerformed
 
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
@@ -274,33 +311,44 @@ System.exit(0);         // evento para salir
     }//GEN-LAST:event_BotonSalirActionPerformed
 
     private void ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarActionPerformed
-      String categoria2 = (String) vehiculosCmb.getSelectedItem();
-      String categoria1 = (String) Trabajocmb.getSelectedItem();
-      
-      
+      String categoria = (String) Trabajocmb.getSelectedItem();
+        //obtener el objeto vehiculo de la base de datos 
+        String placa = (String) vehiculosCmb.getSelectedItem();
         VehiculoDAOMongo vDAO = new VehiculoDAOMongo();
-        List<Vehiculo> list = vDAO.obtenerVehiculos();
-        Iterator<Vehiculo> iter = list.iterator();
-        //Vehiculo v = new  Vehiculo();
-         Vehiculo v =iter.next();
-            while (!v.getPlaca().equals(categoria2)){
-            
-            v = iter.next();
-            
-            }
-            
-            
-//                System.out.println(v.toString());
+        Vehiculo v= vDAO.obtenerVehiculo(placa);
+       
+         Trabajos t = new Trabajos();
+         int id=t.calcularIdTrabajo();
+        System.out.println("ID:" + t.calcularIdTrabajo());
+       
+        //crear los objetos para cada tipo de trabajo y guardarlos en la base de datos 
         
-        
+        if(categoria.compareTo("MECANICA")==0)
+        {
             
-              this.texto1.setText("Tipo de Trabajo: "+categoria1+"\n Informacion del Vehiculo \nPlaca: "+v.getPlaca()+"\n Marca: "+v.getMarca()+"\n Color: "+v.getColors()+"\n Propietario: "+v.getPropietario()+"\n Modelo: "+v.getModelo());
+            RepMecanica repmecanica = new RepMecanica(id, descripcionTA.getText(), 0, "ACTIVO", 0, 0, v, 0);
+            this.texto1.setText("Tipo de Trabajo: "+categoria+"\nID: "+id+"\n Descripcion: "+descripcionTA.getText()+"\n Numero de Horas: "+repmecanica.getNumHoras()+"\n Estado: "+repmecanica.getEstado()+"\n Valor del Material: "+repmecanica.getVrMaterial()+"\n Precio a Cobrar: "+repmecanica.getPrecioaCobrar()+ "\n Informacion del Vehiculo \nPlaca: "+v.getPlaca()+"\n Marca: "+v.getMarca()+"\n Color: "+v.getColors()+"\n Propietario: "+v.getPropietario()+"\n Modelo: "+v.getModelo()+"\n Plazo: "+repmecanica.getPlazo());
+
+       
+       
+        }else {if(categoria.compareTo("LATONERIA")==0)
+        {
+            
+            RepLatoneria replatoneria = new RepLatoneria(id, descripcionTA.getText(), 0, "ACTIVO", 0, 0, v, 0);
+             this.texto1.setText("Tipo de Trabajo: "+categoria+"\nID: "+id+"\n Descripcion: "+descripcionTA.getText()+"\n Numero de Horas: "+replatoneria.getNumHoras()+"\n Estado: "+replatoneria.getEstado()+"\n Valor del Material: "+replatoneria.getVrMaterial()+"\n Precio a Cobrar: "+replatoneria.getPrecioaCobrar()+ "\n Informacion del Vehiculo \nPlaca: "+v.getPlaca()+"\n Marca: "+v.getMarca()+"\n Color: "+v.getColors()+"\n Propietario: "+v.getPropietario()+"\n Modelo: "+v.getModelo()+"\n Plazo: "+replatoneria.getPlazo());
+
+       
+       
+        }else{if(categoria.compareTo("REVISION")==0)
+        {
+            
+            Revision revision = new Revision(id, descripcionTA.getText(), 0, "ACTIVO", 0, 0, v, 0);
+            this.texto1.setText("Tipo de Trabajo: "+categoria+"\nID: "+id+"\n Descripcion: "+descripcionTA.getText()+"\n Numero de Horas: "+revision.getNumHoras()+"\n Estado: "+revision.getEstado()+"\n Valor del Material: "+revision.getVrMaterial()+"\n Precio a Cobrar: "+revision.getPrecioaCobrar()+ "\n Informacion del Vehiculo \nPlaca: "+v.getPlaca()+"\n Marca: "+v.getMarca()+"\n Color: "+v.getColors()+"\n Propietario: "+v.getPropietario()+"\n Modelo: "+v.getModelo()+"\n Plazo: "+revision.getPlazo());
 
             
        
-        
        
-// TODO add your handling code here:
+        }}}
     }//GEN-LAST:event_ActualizarActionPerformed
 
     /**
@@ -348,11 +396,14 @@ System.exit(0);         // evento para salir
     private javax.swing.JButton BotonSalir;
     private javax.swing.JComboBox<String> Trabajocmb;
     private javax.swing.JLabel datos_trabajo;
+    private javax.swing.JTextArea descripcionTA;
     private javax.swing.JButton guardarTrabajoBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea texto1;
     private javax.swing.JComboBox<String> vehiculosCmb;
