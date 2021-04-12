@@ -5,6 +5,12 @@
  */
 package Modelo;
 
+import dao.RepLatoneriaDAO;
+import dao.RepMecanicaDAO;
+import dao.RevisiónDAO;
+import java.util.Iterator;
+import java.util.List;
+
 
 /**
  *@author Cristian Stiven Perdomo Garcia
@@ -89,10 +95,55 @@ public class Trabajos extends RegistrarTrabajos{
     
  // 
     
-    public void calcularIdTrabajo(){
+    public int calcularIdTrabajo(){
         //Hay que buscar el la BD cual fue el ID de ultimo guardado
         //para calular el ID
+        int maxidrl=0;
+        int maxidrev=0;
+        int maxidrm=0;
+        int maxid;
+        RepMecanicaDAO repmecanicadao = new RepMecanicaDAO();
+        List<RepMecanica> list = repmecanicadao.obtenerRepMecanicas();
+        Iterator<RepMecanica> iter = list.iterator();
+        RepMecanica rm = null;
+        while (iter.hasNext()){
+            rm = iter.next();
+            if (rm.getId()>maxidrm)
+                maxidrm = rm.getId();
+        }
         
+        //Obteniendo maxid de replatoneria
+        RepLatoneriaDAO replatoneriadao = new RepLatoneriaDAO();
+        List<RepLatoneria> listl = replatoneriadao.obtenerRepLatonerias();
+        Iterator<RepLatoneria> iterl = listl.iterator();
+        RepLatoneria rml = null;
+        while (iterl.hasNext()){
+            rml = iterl.next();
+            if (rml.getId()>maxidrl)
+                maxidrl = rml.getId();
+        }
+        //obteniendo maxid de revisionmecanica
+        RevisiónDAO revisiondao = new RevisiónDAO();
+        List<Revision> listrev = revisiondao.obtenerRevisiones(estado);
+        Iterator<Revision> iterrev = listrev.iterator();
+        Revision rmrev = null;
+        while (iterrev.hasNext()){
+            rmrev = iterrev.next();
+            if (rmrev.getId()>maxidrev)
+                maxidrev = rmrev.getId();
+        }
+        //Obteniendo el maxid
+        if (maxidrm > maxidrl)
+            if (maxidrm > maxidrev) {
+                maxid = maxidrm + 1;
+            } else {
+                maxid = maxidrev + 1;
+            }
+        else if (maxidrl > maxidrev)
+            maxid = maxidrl + 1;
+        else
+            maxid = maxidrev + 1;
+        return maxid;
         
     }
     
